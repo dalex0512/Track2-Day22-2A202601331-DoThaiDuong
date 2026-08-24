@@ -12,20 +12,21 @@ pip install -r requirements.txt
 ## requirements.txt
 
 ```
-langchain>=0.3.0
-langchain-core>=0.3.0
-langchain-openai>=0.3.0
-langchain-community>=0.3.0
-langchain-text-splitters>=0.3.0
-langsmith>=0.2.0
+langchain>=1.0.0,<2.0.0
+langchain-core>=1.0.0,<2.0.0
+langchain-openai>=1.0.0,<1.6.0
+langchain-community>=0.3.31,<0.4.0
+langchain-text-splitters>=1.0.0,<2.0.0
+langsmith>=0.2.0,<1.0.0
 openai>=1.0.0
 faiss-cpu>=1.7.0
-ragas>=0.4.0
-guardrails-ai>=0.5.0
+ragas>=0.4.0,<0.5.0
+guardrails-ai>=0.10.0,<0.11.0
 python-dotenv>=1.0.0
 tiktoken>=0.5.0
-datasets>=2.0.0
-numpy>=1.25.0
+datasets>=4.0.0,<5.0.0
+huggingface-hub>=0.25.0,<1.0.0
+numpy>=1.25.0,<3.0.0
 ```
 
 ## Package Purposes
@@ -58,7 +59,7 @@ numpy>=1.25.0
 - `Guard.use()` accepts validator **instances**, not classes
 - `Guard.validate(text)` is the main entry point
 
-### LangChain 0.3.x
+### LangChain 1.x
 - Use `ChatOpenAI(api_key=..., base_url=..., model=...)` for custom endpoints
 - Use `OpenAIEmbeddings(api_key=..., base_url=..., model=...)` for custom embedding endpoints
 

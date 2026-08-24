@@ -191,6 +191,17 @@ cd src && python run_all.py
 cd src && python run_all.py --step 3
 ```
 
+### Kiểm thử offline (không cần API key)
+
+Từ thư mục gốc của project:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Bộ test kiểm tra chunking/FAISS, LCEL chain, A/B router, schema RAGAS,
+PII redaction và JSON repair bằng fake embeddings/LLM nên không phát sinh chi phí API.
+
 ---
 
 ## Nộp bài
@@ -216,17 +227,14 @@ evidence/
 
 ### 3. Lưu output console vào tệp
 
+Các bước 2–4 tự động tạo `02_ab_routing_log.txt`, `03_ragas_report.json`,
+`04_pii_demo_log.txt` và `04_json_demo_log.txt` trong `evidence/`. Nếu muốn lưu
+thêm toàn bộ output console, có thể dùng `tee`:
+
 Sử dụng lệnh `tee` để vừa in ra màn hình vừa lưu vào tệp:
 
 ```bash
 python script.py | tee evidence/output.txt
-```
-
-Ví dụ cụ thể:
-
-```bash
-python 02_prompt_hub_ab_routing.py | tee ../evidence/02_ab_routing_log.txt
-python 04_guardrails_validator.py  | tee ../evidence/04_pii_demo_log.txt
 ```
 
 ### 4. Push lên GitHub và nộp

@@ -13,6 +13,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 
+from utils.console import configure_utf8_console
+
+configure_utf8_console()
+
 
 STEPS = {
     1: ("Bước 1: LangSmith RAG Pipeline",   "01_langsmith_rag_pipeline"),
@@ -70,6 +74,8 @@ def main():
         status = "✅ PASS" if success else "❌ FAIL"
         print(f"  {status}  {title}")
 
+    return bool(results) and all(results.values())
+
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(0 if main() else 1)
